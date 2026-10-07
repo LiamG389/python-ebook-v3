@@ -1,0 +1,330 @@
+[
+  {
+    "title": "Welcome",
+    "level": 0
+  },
+  {
+    "title": "What You’ll See",
+    "level": 1
+  },
+  {
+    "title": "Report A Bug/Get Help",
+    "level": 1
+  },
+  {
+    "title": "Hello World!",
+    "level": 0
+  },
+  {
+    "title": "What is Python?",
+    "level": 1
+  },
+  {
+    "title": "Two Basic Functions",
+    "level": 1
+  },
+  {
+    "title": "Numbers and Operations",
+    "level": 1
+  },
+  {
+    "title": "Simple Variables and Types of Data Values",
+    "level": 1
+  },
+  {
+    "title": "Adding Strings?",
+    "level": 1
+  },
+  {
+    "title": "Concatenation",
+    "level": 1
+  },
+  {
+    "title": "PROJECT 1: Calculator",
+    "level": 1
+  },
+  {
+    "title": "Loops and If Statements",
+    "level": 0
+  },
+  {
+    "title": "What Are Loops?",
+    "level": 1
+  },
+  {
+    "title": "For x in range():",
+    "level": 1
+  },
+  {
+    "title": "If Statements",
+    "level": 1
+  },
+  {
+    "title": "If Statements II",
+    "level": 1
+  },
+  {
+    "title": "While Loops",
+    "level": 1
+  },
+  {
+    "title": "Try and Except Statements",
+    "level": 1
+  },
+  {
+    "title": "Loop Inside a Loop?!",
+    "level": 1
+  },
+  {
+    "title": "Logical Operators",
+    "level": 0
+  },
+  {
+    "title": "What are Logical Operators?",
+    "level": 1
+  },
+  {
+    "title": "And",
+    "level": 1
+  },
+  {
+    "title": "Or",
+    "level": 1
+  },
+  {
+    "title": "Not",
+    "level": 1
+  },
+  {
+    "title": "Lists, Dictionaries, and Tuples",
+    "level": 0
+  },
+  {
+    "title": "What’s a list?",
+    "level": 1
+  },
+  {
+    "title": "Using Lists",
+    "level": 1
+  },
+  {
+    "title": "2D Lists",
+    "level": 1
+  },
+  {
+    "title": "Using Lists with For Loops",
+    "level": 1
+  },
+  {
+    "title": "What’s a Dictionary?",
+    "level": 1
+  },
+  {
+    "title": "Using Dictionaries",
+    "level": 1
+  },
+  {
+    "title": "What’s a Tuple?",
+    "level": 1
+  },
+  {
+    "title": "List Comprehension",
+    "level": 1
+  },
+  {
+    "title": "Section Practice",
+    "level": 1
+  },
+  {
+    "title": "Lesson Assets",
+    "level": 2
+  },
+  {
+    "title": "Packages",
+    "level": 0
+  },
+  {
+    "title": "What’s a Package?",
+    "level": 1
+  },
+  {
+    "title": "Random",
+    "level": 1
+  },
+  {
+    "title": "Time",
+    "level": 1
+  },
+  {
+    "title": "Turtle",
+    "level": 1
+  },
+  {
+    "title": "Turtle II",
+    "level": 1
+  },
+  {
+    "title": "Section Challenge/Extra",
+    "level": 1
+  },
+  {
+    "title": "Lesson Assets",
+    "level": 2
+  },
+  {
+    "title": "PROJECT 2: Rock, Paper, Scissors",
+    "level": 0
+  },
+  {
+    "title": "Rock, Paper, Scissors Part 1",
+    "level": 1
+  },
+  {
+    "title": "Lesson Assets",
+    "level": 2
+  },
+  {
+    "title": "Rock, Paper, Scissors Part II",
+    "level": 1
+  },
+  {
+    "title": "Optimizing our Rock, Paper, Scissors",
+    "level": 1
+  },
+  {
+    "title": "Functions",
+    "level": 0
+  },
+  {
+    "title": "Create Your Own Functions!",
+    "level": 1
+  },
+  {
+    "title": "Parameters",
+    "level": 1
+  },
+  {
+    "title": "Text Files and CSVs",
+    "level": 0
+  },
+  {
+    "title": "Creating a Text File in Trinket (NOW USELESS)",
+    "level": 1
+  },
+  {
+    "title": "Reading From a Text File",
+    "level": 1
+  },
+  {
+    "title": "Lesson Assets",
+    "level": 2
+  },
+  {
+    "title": "Writing Data Into a Text File",
+    "level": 1
+  },
+  {
+    "title": "CSV (Comma Seperated Lists) - INCOMPLETE",
+    "level": 1
+  },
+  {
+    "title": "Challenge/Mini-Project - INCOMPLETE",
+    "level": 1
+  },
+  {
+    "title": "PROJECT 3: Hangman",
+    "level": 0
+  },
+  {
+    "title": "Hangman I - Logic",
+    "level": 1
+  },
+  {
+    "title": "Lesson Assets",
+    "level": 2
+  },
+  {
+    "title": "Hangman II Turtle - UNFINISHED",
+    "level": 1
+  },
+  {
+    "title": "Hangman Final Code - UNFINISHED",
+    "level": 1
+  },
+  {
+    "title": "Classes - UNFINISHED",
+    "level": 0
+  },
+  {
+    "title": "What’s a Class?",
+    "level": 1
+  },
+  {
+    "title": "The __init__ Function",
+    "level": 1
+  },
+  {
+    "title": "Adding Functions to your Class",
+    "level": 1
+  },
+  {
+    "title": "Using Your Class",
+    "level": 1
+  },
+  {
+    "title": "Subclasses",
+    "level": 1
+  },
+  {
+    "title": "Requests (Optional) - UNFINISED",
+    "level": 3
+  },
+  {
+    "title": "What’s Requests?",
+    "level": 4
+  },
+  {
+    "title": "How can Requests Be Used?",
+    "level": 4
+  },
+  {
+    "title": "Building a Weather App (Optional) - UNFINISHED",
+    "level": 3
+  },
+  {
+    "title": "Building a Weather App I",
+    "level": 4
+  },
+  {
+    "title": "Building a Weather App II",
+    "level": 4
+  },
+  {
+    "title": "Building a Weather App III",
+    "level": 4
+  },
+  {
+    "title": "Sockets (Optional) - UNFINISHED",
+    "level": 3
+  },
+  {
+    "title": "What’s a Socket?",
+    "level": 4
+  },
+  {
+    "title": "Chat App - Socket Example",
+    "level": 4
+  },
+  {
+    "title": "Where Next?",
+    "level": 3
+  },
+  {
+    "title": "Continue Learning Python",
+    "level": 4
+  },
+  {
+    "title": "Learn a Different Coding Language",
+    "level": 4
+  }
+]

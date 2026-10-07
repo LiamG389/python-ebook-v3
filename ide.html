@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Practice - IDE</title>
+    <link rel="icon" type="image/png" href="https://www.python.org/static/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="ide.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+</head>
+<body>
+    <main class="ebook-content">
+        <a class="back-link" href="index.html">← Python Practice</a>
+        <section class="example-copy" aria-labelledby="example-title">
+            <h1 id="example-title">Try Python: greet the user</h1>
+            <p>Programs often need information from the person running them. The <code>input()</code> function displays a question and waits for a response. Try the example below: enter your name in the console and press Enter.</p>
+        </section>
+        <section class="ide-container" aria-label="Interactive Python example">
+            <header class="ide-heading">
+                <h2>Interactive example</h2>
+                <div class="ide-actions">
+                    <span id="runtime-status" role="status">Loading Python…</span>
+                    <button class="runbutton" id="run-button" type="button" disabled>▶ Run</button>
+                </div>
+            </header>
+        <div class="workspace">
+            <section class="editor-panel" aria-label="Python code editor">
+                <h3>Code</h3>
+                <div id="code-editor"></div>
+            </section>
+            <section class="result-panel" aria-label="Program output">
+                <h3>Console</h3>
+                <div id="terminal" aria-live="polite">
+                    <pre id="program-output">Run your Python code to see its output here.</pre>
+                    <form id="terminal-input-form" hidden>
+                        <label id="terminal-prompt" for="terminal-input"></label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Program input">
+                    </form>
+                </div>
+            </section>
+        </div>
+        </section>
+        <section class="example-copy follow-up" aria-labelledby="output-title">
+            <h2 id="output-title">What happened?</h2>
+            <p>The program paused at <code>input()</code> until you entered a name. Python saved that response in the <code>name</code> variable, then <code>print()</code> displayed a greeting. Change the code or try another name, then select <strong>Run</strong> again.</p>
+            <pre class="code-example">name = input("What is your name? ")
+print(f"Hello, {name}!")</pre>
+        </section>
+    </main>
+    <script src="ide.js"></script>
+</body>
+</html>

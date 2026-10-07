@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ececf1;
+    color: #202124;
+}
+
+#runtime-status {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.runbutton {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    background: #00c300;
+    border-color: green;
+    color: #111;
+}
+
+.runbutton:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.ebook-content {
+    width: min(100% - 32px, 900px);
+    margin: 28px auto 48px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #365a9e;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.example-copy {
+    max-width: 780px;
+    margin: 0 auto 20px;
+    line-height: 1.65;
+}
+
+.example-copy h1,
+.example-copy h2 {
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+
+.example-copy h1 {
+    font-size: 1.55rem;
+}
+
+.example-copy h2 {
+    font-size: 1.15rem;
+}
+
+.example-copy p {
+    margin: 0;
+    color: #454550;
+}
+
+.example-copy code {
+    padding: 1px 4px;
+    background: #dedee7;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.ide-container {
+    padding: 14px;
+    background: #fff;
+    border: 1px solid #d5d5de;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgb(24 24 50 / 9%);
+}
+
+.ide-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.ide-heading h2 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.ide-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.follow-up {
+    margin-top: 24px;
+}
+
+.code-example {
+    margin: 12px 0 0;
+    padding: 12px;
+    overflow: auto;
+    color: #e8e8ed;
+    background: #20212a;
+    border-radius: 5px;
+    font: 14px/1.55 monospace;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 1fr);
+    gap: 12px;
+    height: 370px;
+}
+
+.editor-panel,
+.result-panel {
+    min-width: 0;
+    min-height: 0;
+    padding: 10px;
+    background: #fafafd;
+    border: 1px solid #d9d9e1;
+    border-radius: 6px;
+}
+
+.editor-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-panel h3,
+.result-panel h3 {
+    margin: 0 0 8px;
+    color: #53535f;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+#code-editor {
+    flex: 1;
+    min-height: 0;
+    border: 1px solid #ddd;
+}
+
+.CodeMirror {
+    height: 100%;
+    font-size: 14px;
+}
+
+.result-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#terminal {
+    flex: 1;
+    min-height: 0;
+    padding: 12px;
+    overflow: auto;
+    color: #e8e8ed;
+    background: #20212a;
+    border-radius: 4px;
+    font: 14px/1.55 monospace;
+}
+
+#program-output {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font: inherit;
+}
+
+#terminal-input-form {
+    display: flex;
+    align-items: baseline;
+    min-height: 1.55em;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+#terminal-input-form[hidden] {
+    display: none;
+}
+
+#terminal-prompt {
+    white-space: pre-wrap;
+}
+
+#terminal-input {
+    flex: 1;
+    width: 2ch;
+    min-width: 2ch;
+    padding: 0;
+    color: inherit;
+    caret-color: #fff;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font: inherit;
+}
+
+#terminal-input::selection {
+    color: #20212a;
+    background: #c8c8d0;
+}
+
+#terminal-input:focus {
+    animation: terminal-caret 1s step-end infinite;
+}
+
+@keyframes terminal-caret {
+    50% { caret-color: transparent; }
+}
+
+#terminal-input-form input {
+    min-height: 1.55em;
+}
+
+#program-output.error {
+    color: #ffaaa6;
+}
+
+@media (max-width: 700px) {
+    .ebook-content {
+        width: calc(100% - 24px);
+        margin: 16px auto 32px;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .editor-panel {
+        min-height: 330px;
+    }
+
+    .result-panel {
+        min-height: 220px;
+    }
+
+    .ide-actions {
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        gap: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #terminal-input:focus {
+        animation: none;
+    }
+}
