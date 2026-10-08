@@ -442,9 +442,11 @@ body {
     border-radius: 3px;
     font: inherit;
     line-height: inherit;
+    overflow-x: hidden;
     overflow-y: hidden;
     resize: none;
-    white-space: pre;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .quiz-code-answer-inline {
