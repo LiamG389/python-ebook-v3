@@ -27,6 +27,7 @@ Use this form to submit a bug or get help.
 
 Sidenote: Now, there is no need for a “Navigating Trinket” or “Create your first Trinket” section, because this course is no longer on Trinket. In the future, you will either be asked to code on your own computer using Pycharm or VSCode, move to PythonAnywhere, or use the built-in editor on the future website this is to be hosted on. 
 ## Hello World!
+Welcome to the first unit of this course! To get started, hit the next button to learn about what Python is. 
 ### What is Python?
 Python is a object oriented language. Think about it this way: Python is a user-friendly programming language, rather than a computer-friendly one. 
        
@@ -41,7 +42,7 @@ When you learn Python, there are two basic functions that most people would agre
 print
 input
 ```
-If you geussed corrrectly in the last section, the ```print``` function prints in the console whatever you type into the quotation marks. Give the following a try by pressing the "run" (	<i class="fa fa-play"></i>) button. Feel free to make it print different things.
+If you guessed correctly in the last section, the `print` function prints in the console whatever you type into the quotation marks. Give the following a try by pressing the "run" button. Feel free to make it print different things.
 ```python.run
 #!/bin/python3
 print('hello world')
@@ -72,11 +73,44 @@ Ok, let's have you try asking a question to the user:
 input("What is your age?")
 ```
 *Bonus: Try changing the question*
+
+Check what you've learned:
+```quiz.multi
+Question: Which function displays text in the console?
+- input()
+- print()
+- open()
+Answer: print()
+Feedback: print() displays text in the console.
+
+Question: What type of value does input() return?
+- A string
+- A number
+- A list
+Answer: A string
+Feedback: Even if the user types digits, input() returns text.
+
+Question: Fill in the function that asks the user for a response: age = {{blank}}("How old are you?").
+Answer: input | input()
+Feedback: The input() function prompts the user and returns their response.
+```
+```quiz.code
+Prompt: Finish the function so it greets the user when a name is provided.
+Code:
+def greet(name):
+    {{blank}}
+    {{blank}}
+Answer:
+if name:
+---
+    print("Hello, " + name)
+Feedback: The print() function displays the greeting.
+```
 ### Numbers and Operations
 Python can also do math! And it's very simple. All you have to do is type what you the operation. 
 * Addition is +
 * Subtraction is -
-* Mutiplication is *
+* Multiplication is *
 * Division is /
 * Making something to the power of something else is **
 * Modulus is %
@@ -85,7 +119,7 @@ Lets try something
 ```python.run
 1+1
 ```
-If you run it by clicking the	<i class="fa fa-play"></i>, you will see nothing happens! This is because we didn't tell Python to accually print the result. Try making it so that we see "2" in the console
+If you run it by clicking the run button, and you will see nothing happens! This is because we didn't tell Python to actually print the result. Try making it so that we see "2" in the console
 ***
 You should have done:
 
@@ -94,6 +128,20 @@ print(1+1)
 ```
 If you didn't do it already, go ahead and copy that code into the console and hit run!
 Try some of the other operations in the exact same way!
+Check what you've learned:
+```quiz.multi
+Question: How do you raise one number to the power of another in Python?
+- ^
+- **
+- pow()
+Answer: **
+Feedback: Conventionally, ^ is used, but in Python, we use two asterisks (**) to raise one number to the power of another.
+
+
+Question: Make the following function compute: age = {{blank}}((3)^2 * (4+3))
+Answer: print() | print
+Feedback: The print function can print out the result of something. 
+```
 ### Simple Variables and Types of Data Values
 You might think it's a bit early to talk about variables, but they are really simple. Moreover, everything else about Python is built on variables. Now, the first step of creating a variable is giving it a name. Let's create a variable called bob like this:
 ```
@@ -103,7 +151,7 @@ Now, what comes after the equals sign is what the value of bob is. In Python, th
 
 *Important!*: Variable names can be creative, but they must follow the three rules:
 1. They can't start with a number (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
-2. They can't contain special charecters. Some examples are: !@#$%^&*()<>?/`~., When in doubt, don't include it.
+2. They can't contain special characters. Some examples are: !@#$%^&*()<>?/`~., When in doubt, don't include it.
 3. It can't have these words:
 ```
 and       del       from      None      True
@@ -179,6 +227,46 @@ For the ```int()```
 function, you can take and float or string THAT IS A NUMBER and change it into an integer. For floats, when you change them to an integer, they will always round down. For the ```float()``` function, you can change any string that is an number or decimal to a float. All integers will have a .0 after them when you change them into floats.
 
 **Bonus!** Try and combine the `input()` function and the variables to make the 
+
+Check what you've learned:
+```quiz.multi
+Question: What is the result of print("hello"+"world")
+- hello world
+- helloworld
+- Error
+- HelloWorld
+Answer: helloworld
+Feedback: The + operator on strings joins them together without a space. 
+
+Question: Complete the statement: an Int can have {{blank}} decimal digits. 
+Answer: 0 | no | zero
+Feedback: An Int cannot have decimal points. Only a float can. 
+
+Question: How can I set the variable age to 12 years old? (int, not string)
+- age = "12"
+- age = 12
+- 12 = age
+- "age" = "12
+Answer: age = 12
+Feedback: An int does not require quotation marks, and there should never be quotes around the name of a variable. 
+
+Question: Which of the following can you not start a Python variable with? (Select all that apply)
+Type: multi-select
+- A capital letter
+- A special symbol 
+- A number
+- A lowercase letter
+Answer: A special symbol | A number
+Feedback: As listed above, Python variables may not start with a special symbol or a number. 
+
+Question: What happens when I try to do print("nine" + 7)?
+- Error
+- 16
+- nine7
+- 97
+Answer: Error
+Feedback: You cannot add a string and an int together. 
+```
 ### Adding Strings?
 Belive it or not, you can also do math operations on strings!
 
@@ -212,14 +300,28 @@ var2 = "bannana"
 print(var1, var2)
 ```
 You might have noticed, but this inserted a space between the two. This is just the nature of the comma. 
-3: Using an `f` string. Trinket doesn't support this one, unfortunatly, but if you run python on your computer using another software (see [here](https://trinket.io/liamgao/courses/python#/requests-optional/a-bit-of-an-inconvenience)), you would do so like this:
-```
+
+3: Using an `f` string. Do so like this:
+```python.run
 var1 = "apple"
 print(f"Hello {var1}")
 ```
-It would print out:
-```python
-Hello apple
+Check what you've learned:
+```quiz.multi
+Question: Which concatenation method adds a space between the things getting concatenated?
+- ,
+- +
+Answer: ,
+Feedback: Using a comma automatically adds a space between the two (or more) items getting concatenated. 
+
+Question: In an f string, how would I insert the variable I want to concatenate?
+- Brackets ({})
+- Parenthesis (())
+- Square Brackets ([])
+- Backslashes (\\)
+- Pipe Symbol (||)
+Answer: Brackets ({})
+Feedback: As seen above, you brackets to add your variable to the string (e.g. print(f"Hello, {name}")
 ```
 ### PROJECT 1: Calculator
 In the last part of "Hello World!", we are going to be making our first project! A calculator that does addition. Here is what we are going to be making today. You can play around with it by clicking the run button
@@ -275,6 +377,7 @@ If you end up with bugs, look here!
 
 
 ## Loops and If Statements
+Variables are pretty useless if we can't compare them in order to determine which operations to do on them...
 ### What Are Loops?
 Loops are a type of Python code that is used to repeat an action mutiple times. If statements are used to determine if something is true and do an action accordingly. Here are the two main loops used in Python: (Don't worry, we'll learn all of this in the later parts of this section.)
 ```
@@ -311,7 +414,7 @@ You can see that the word "meow" printed 10 times beccause I put the number 10 i
 Compare your code:
 ```
 for x in range(15):
-    print("meow")
+    print("woof")
 ```
 
 ####Key Points to Remember:
@@ -319,7 +422,7 @@ for x in range(15):
 2. Everything you want repeated has to have an indent (to create one, hit the "tab" button)
 3. To prevent things you don't want to repeat from repeating, make the rest of you code un-indented. For example, if I wanted to print "meow" ten times and then "woof" once, I need to put woof outside the loop like so:
 ```
-for x in range(10)
+for x in range(10):
     print("meow")
 print("woof")
 ```
@@ -330,9 +433,31 @@ For loops have more potential than this! If we examine `for x in range():` close
 for x in range(10):
     print(x)
 ```
-Hmmm, that's intresting. `x` counts from 0 to nine, incrementing each time the loop is run. Python counts from 0, not 1, so x will increment starting at zero for the first run through of the loop. 
+Hmmm, that's interesting. `x` counts from 0 to nine, incrementing each time the loop is run. Python counts from 0, not 1, so x will increment starting at zero for the first run through of the loop. 
 
 Furthermore, the `range()` part of the loop can also be swapped out, but we'll get to that later when we talk about lists. 
+
+Check what you've learned:
+```quiz.multi
+Question: Complete the phrase: The range() function starts at {{blank}}.
+Answer: zero | 0
+Feedback: Like we discovered in "Diving Deeper", range starts counting from 0. 
+
+Question: Fill in the code to make the program print "hello world" 12 times.
+Code:
+for x in range({{blank}}):
+    {{blank}}({{blank}})
+Answer: 12
+---
+print
+---
+"hello world"
+Feedback: range(12) repeats the loop 12 times, and print("hello world") displays the message.
+
+Question: Fill in the function that asks the user for a response: age = {{blank}}("How old are you?").
+Answer: input | input()
+Feedback: The input() function prompts the user and returns their response.
+```
 ### If Statements
 *Before we start*: We need to come back to something we refrained from talking about in the [simple variables and types of data values](https://liamgao.trinket.io/python-basics#/hello-world/simple-variables-and-types-of-data-values) section. Booleans. As previously mentioned, they can only be in two states, True and False (make sure to capitalize the T in true and the F in false). When we do if statements, we check the condition of, say a variable to determine what code to run, so we can check if a variable is set to True, to run a code. You could always just set the variable to a string that is "true", but Booleans make it more convenient. 
 
@@ -1281,7 +1406,46 @@ Let's make our second project! Rock, paper, scissors. Lets take a look at the th
 * The computer should be able to tell you who wins. 
 
 Those are the three main goals. Let's take them step-by-step. Before we get started though, have a play at what we are going to make:
-<iframe src="https://trinket.io/embed/python/9a8b18210c?outputOnly=true&runOption=run&start=result" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+```python.run.hidden
+import random
+options = ["rock", "paper", "scissors"]
+for x in options:
+  print(x)
+playagain = "y"
+score = 0
+while playagain.strip().lower() == "y":
+  user = input("Choose one (rock, paper, or scissors): ")
+  user = user.strip().lower()
+  while user not in options:
+    print("Pick rock, paper, or scissors.")
+    user = input()
+    user = user.strip().lower()
+  bot = random.choice(options)
+  print("computer chose", bot)
+  outcome = [user, bot]
+  playerWins = [["rock", "scissors"], ["scissors", "paper"], ["paper", "rock"]]
+  if outcome in playerWins:
+    print("You win")
+    score += 1
+    print("your score is", score)
+  elif user == bot:
+    print("You tie")
+  else:
+    print("computer wins")
+  playagain = input("Play again? (y/n): ")
+    
+# if user == bot:
+#   print("Tie")
+# elif user == "rock" and bot == "scissors":
+#   print("You win")
+# elif user == "paper" and bot == "rock":
+#   print("You win")
+# elif user == "scissors" and bot == "paper":
+#   print("You win")
+# else:
+#   print("computer wins")
+```
 
 First, create a new trinket project (review how to do that [here](https://trinket.io/liamgao/courses/python-basics#/welcome/create-your-first-trinket)). We should start first by asking the user what they want to pick (rock, paper or scissors). Let's also tell them the options by printing them, just in case they are not already familar with rock, paper scissors. When run, your code should look something like this:
 ```python
@@ -1321,44 +1485,8 @@ Now that we have both the user and the computer's choice, we need to determine w
 
 P.S. Stand up, take a drink of water, go to the bathroom for 5 minutes before you continue to give your eyes a break! 🙂
 
-#### Lesson Assets
-Rock, Paper, Scissors:
-#!bin/python3
-import random
-options = ["rock", "paper", "scissors"]
-for x in options:
-  print(x)
-playagain = "y"
-score = 0
-while playagain == "y":
-  user = input("Choose one")
-  while user not in options:
-    print("pick another option")
-    user = input()
-  bot = random.choice(options)
-  print("computer chose", bot)
-  outcome = [bot, user]
-  playerWins = [['rock', 'scissors'], ['rock', 'paper'], ['rock', 'scissors']]
-  if outcome in playerWins:
-    print("You win")
-    score += 1
-    print("your score is", score)
-  elif user == bot:
-    print("You tie")
-  else:
-    print("computer wins")
-  playagain = input("play again?(y for yes, n for no)")
-    
-# if user == bot:
-#   print("Tie")
-# elif user == "rock" and bot == "scissors":
-#   print("You win")
-# elif user == "paper" and bot == "rock":
-#   print("You win")
-# elif user == "scissors" and bot == "paper":
-#   print("You win")
-# else:
-#   print("computer wins")
+
+
 ### Rock, Paper, Scissors Part II
 Now that we know both the computer and the user's choice, we need to decide who wins. If you recall, we can use if loops to tell us what happened and give a response accordingly. Let's set up the first if loop together and see if you can do the rest on your own. To make it simple, we have 4 cases to consider:
 1. User beats computer rock to scissors
@@ -1406,12 +1534,12 @@ Your entire code should look something like this:
 import random
 options = ["rock", "paper", "scissors"]
 play_again = "y"
-while play_again == "y":
+while play_again.strip().lower() == "y":
     print("rock, paper, scissors, choose one")
-    user = input("Choose one")
+    user = input("Choose one: ").strip().lower()
     while user not in options:
         print("Please Choose an option")
-    user = input()
+        user = input("Choose one: ").strip().lower()
     bot = random.choice(options)
     print("computer chose", bot)
     if user == bot:
@@ -1424,7 +1552,7 @@ while play_again == "y":
       print("You win")
     else:
       print("computer wins")
-    play_again = input("play again?(y for yes, n for no)")
+    play_again = input("play again? (y for yes, n for no): ")
 ```
 Try it and see if everything works out! If it doesn't work, go and submit a "need help" on the form in the Welcome section. 
 
@@ -1569,16 +1697,8 @@ def tozero(num=1):
         return "less than 0"
 ```
 ## Text Files and CSVs
-### Creating a Text File in Trinket (NOW USELESS)
-Follow the video to learn how to create a text file in trinket.
-
-![video](https://vimeo.com/1147077493?share=copy&fl=sv&fe=ci)
-
-
-***
-**Text Instructions**
-1. Create a new trinket.
-2. Click either the + or the upload icon next to the plus icon: If you clicked the plus icon: Name your file namehere.txt, and then you can type in the file. If you clicked the upload button, select a file for upload. 
+### Viewing Demos with Text Files
+In the interactive examples below, use the **+ File** control to create a `.txt` or `.py` file. Select a file tab to edit it. The files are available to the Python program when you press **Run**.
 ### Reading From a Text File
 Using Python, you can read info from text files. This is useful when you have large amounts of data or you want to seperate your data from your code in order to change the data more easily. 
 ***
@@ -1606,9 +1726,15 @@ In this section, we are going to focus on the reading function.
 The `as f` part of the statement above simply gives the file a name that we can use to refer to it in the program. It is basically a variable and can be anything you want. I am just using `f` as an example here. 
 ***
 There are two main functions that you can use to read files: `read()` and `readlines()`. 
-The `read()` command reads the entire file into a string. Here's an example:
-
-<iframe src='https://trinket.io/embed/python/279a8f6125f9?start=result' width='100%' height='400' frameborder='0' marginwidth='0' marginheight='0' allowfullscreen></iframe>
+The `read()` command reads the entire file into a string. Here's an example. Use the file tabs to edit `demofile.txt`, add other files, or change the Python code:
+```file:demofile.txt
+Hello World! This is the demo file!
+```
+```python.run
+with open("demofile.txt", "r") as f:
+    filetext = f.read()
+print(filetext)
+```
 The `readlines` function reads the file by lines into a list of strings, with one string being each line, and a new line character (`\n`) at the end of each line. Let's modify the demo file to showcase this function:
  
 `demofile.txt`
@@ -1618,7 +1744,16 @@ This is a demo file!
 This is a new line.
 ```
 
-<iframe src='https://trinket.io/embed/python/f3ffa189b900?start=result' width='100%' height='400' frameborder='0' marginwidth='0' marginheight='0' allowfullscreen></iframe>
+```file:demofile.txt
+Hello World!
+This is a demo file!
+This is a new line.
+```
+```python.run
+with open("demofile.txt", "r") as f:
+    myfile = f.readlines()
+print(myfile)
+```
 #### Lesson Assets
 
 https://trinket.io/embed/python/279a8f6125f9?start=result 
@@ -1668,7 +1803,94 @@ Welcome to your third (and last *official*) project of this course! For our hang
 In Part I of this project, we are going to be focusing on the logic part of hangman, and in Part II, we are going to be focusing on the drawing the Hangman, which can be a bit tedious. 
 
 As always, before we begin, here is the finished product:
-<iframe src="https://trinket.io/embed/python/2b7edf4639c1?outputOnly=true&runOption=run&start=result" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+Run the hidden-code activity below and enter letters in the console. The `words.txt` tab contains the word list; you can edit it or add other project files.
+```file:words.txt
+python
+hangman
+programming
+computer
+keyboard
+```
+```python.run.hidden
+import random
+import turtle
+
+with open("words.txt", "r") as word_file:
+    words = [line.strip().lower() for line in word_file if line.strip()]
+if not words:
+    raise ValueError("Add at least one word to words.txt.")
+
+word = random.choice(words)
+revealed = ["_" for _ in word]
+guessed = set()
+wrong_guesses = 0
+
+screen = turtle.Screen()
+screen.setup(400, 400)
+pen = turtle.Turtle()
+pen.speed(0)
+pen.hideturtle()
+pen.pensize(4)
+
+pen.penup()
+pen.goto(-130, -140)
+pen.pendown()
+pen.forward(220)
+pen.backward(110)
+pen.left(90)
+pen.forward(250)
+pen.right(90)
+pen.forward(110)
+pen.right(90)
+pen.forward(35)
+pen.penup()
+
+def draw_part(number):
+    if number == 1:
+        pen.goto(0, 55)
+        pen.pendown()
+        pen.circle(20)
+        pen.penup()
+    else:
+        start_end = {
+            2: ((0, 15), (0, -55)),
+            3: ((0, -5), (-30, -35)),
+            4: ((0, -5), (30, -35)),
+            5: ((0, -55), (-25, -100)),
+            6: ((0, -55), (25, -100)),
+        }
+        start, end = start_end[number]
+        pen.goto(*start)
+        pen.pendown()
+        pen.goto(*end)
+        pen.penup()
+
+print(" ".join(revealed))
+while "_" in revealed and wrong_guesses < 6:
+    guess = input("Guess a letter: ")
+    guess = guess.strip().lower()
+    if len(guess) != 1 or not guess.isalpha():
+        print("Enter one letter.")
+        continue
+    if guess in guessed:
+        print("You already guessed that letter.")
+        continue
+    guessed.add(guess)
+    if guess in word:
+        for index, letter in enumerate(word):
+            if letter == guess:
+                revealed[index] = guess
+        print("Correct!", " ".join(revealed))
+    else:
+        wrong_guesses += 1
+        draw_part(wrong_guesses)
+        print("Not in the word.", " ".join(revealed))
+
+if "_" not in revealed:
+    print("You won!")
+else:
+    print("You lost! The word was", word)
+```
 
 First, create a new trinket. You can review that [here](https://trinket.io/liamgao/courses/python#/welcome/create-your-first-trinket). Make sure to add `#!/bin/python3` to beginning of the code, to tell trinket to use Python 3. Next, we need to get the list of words to choose from. An effective way to store that data would be in a text file. Create a text file called `words.txt` (review how to do that [here](https://trinket.io/liamgao/courses/python#/text-files-and-csvs/creating-a-text-file-in-trinket)), and paste the following words into the text file named `words.txt`
 (feel free to remove words that seem to hard or easy):
@@ -1950,10 +2172,15 @@ if guess not in guessed_letters:
     if guess in word:
         print("Correct!")
 ```
-Next, we want to print out the blanks, with the correct letters filled in. We can do this using a new `enumerate()` function, which can cycle through something like a list, or in our case, a string, and return the index of the current letter/item and also the value. Here's a simple example:
+Next, we want to print out the blanks, with the correct letters filled in. We can do this using a new `enumerate()` function, which can cycle through something like a list, or in our case, a string, and return the index of the current letter/item and also the value. Here's a simple example that reads a word from a project text file:
+```file:words.txt
+python
+hangman
+```
 ```python.run
 #!/bin/python3
-mystring = "Hello, World!"
+with open("words.txt", "r") as words_file:
+    mystring = words_file.readline().strip()
 for i, value in enumerate(mystring):
     print(i, ":", value)
 ```

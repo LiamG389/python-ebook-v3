@@ -13,6 +13,8 @@ const terminalInput = document.getElementById('terminal-input');
 let editor;
 let pyodide;
 let pendingInput;
+let outputDecoder;
+let outputBuffer = '';
 
 window.addEventListener('DOMContentLoaded', () => {
     editor = CodeMirror(document.getElementById('code-editor'), {
@@ -46,8 +48,8 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(() => loadPyodide())
         .then((runtime) => {
             pyodide = runtime;
-            pyodide.setStdout({ batched: appendOutput });
-            pyodide.setStderr({ batched: appendOutput });
+            pyodide.setStdout({ raw: writePythonOutput });
+            pyodide.setStderr({ raw: writePythonOutput });
             pyodide.globals.set('__ide_input_js', requestTerminalInput);
             pyodide.runPython(`
 async def __ide_input(prompt=""):
@@ -70,11 +72,15 @@ async function runCode() {
     statusElement.textContent = 'Running…';
     outputElement.classList.remove('error');
     outputElement.textContent = '';
+    outputDecoder = new TextDecoder();
+    outputBuffer = '';
 
     try {
         await pyodide.runPythonAsync(rewriteInputCalls(editor.getValue()));
+        flushPythonOutput();
         if (!outputElement.textContent) outputElement.textContent = '(No output)';
     } catch (error) {
+        flushPythonOutput();
         outputElement.classList.add('error');
         appendOutput(`${outputElement.textContent ? '\n' : ''}${error}`);
     } finally {
@@ -88,7 +94,27 @@ function appendOutput(text) {
     terminal.scrollTop = terminal.scrollHeight;
 }
 
+function writePythonOutput(byte) {
+    outputBuffer += outputDecoder.decode(new Uint8Array([byte]), { stream: true });
+    if (outputBuffer.includes('\n') || outputBuffer.length >= 512) {
+        appendOutput(outputBuffer);
+        outputBuffer = '';
+    }
+    return byte;
+}
+
+function flushPythonOutput() {
+    if (!outputDecoder) return;
+    outputBuffer += outputDecoder.decode();
+    if (outputBuffer) appendOutput(outputBuffer);
+    outputBuffer = '';
+}
+
 function requestTerminalInput(prompt) {
+    if (outputBuffer) {
+        appendOutput(outputBuffer);
+        outputBuffer = '';
+    }
     appendOutput(String(prompt));
     terminalPrompt.textContent = '';
     terminalInputForm.hidden = false;
