@@ -964,16 +964,16 @@ Feedback: Like discussed above, you define a list using an equals sign, square b
 Click on the links to be directed straight to that section. If it is your first time, and you are not looking back for help, read the whole thing in order. 
 
 **Functions**
-1. [Adding Items to a list using `append()`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-append-)
-2. [Inserting items to the middle of a list using `insert()`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-insert-)
-3. [Removing Items using `remove()`, `pop()` and `del`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-remove-pop-and-del-)
-4. [Getting items from lists using `[]`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-)
-5. [Getting multiple items using `[ : ]`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-)
-6. [Mushing 2 lists together with `extend()`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-)
-7. [Finding Length using `len()`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-len-)
-8. [Checking Membership using `in` and `not in`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-in-not-in-)
-9. [Sorting Lists using `sort()`](http://example.com/)
-10. [Revesing Lists Using `reverse()`](https://liamgao.trinket.io/python-basics#/lists-dictionaries-and-tuples/using-lists#-reverse-)
+1. Adding Items to a list using `append()`
+2. Inserting items to the middle of a list using `insert()`
+3. Removing Items using `remove()`, `pop()` and `del`
+4. Getting items from lists using `[]`
+5. Getting multiple items using `[ : ]`
+6. Mushing 2 lists together with `extend()`
+7. Finding Length using `len()`
+8. Checking Membership using `in` and `not in`
+9. Sorting Lists using `sort()`
+10. Revesing Lists Using `reverse()`
 
 ###`append()`
 To add something to a list, we can use the `append()` function, putting what we want to add to the list in the parentheses.  For example:
@@ -1114,6 +1114,9 @@ print(fruits)
 ```
 All of this may seem hard at first, but after using it for a while, it will all become really familiar. If you ever need to, don't be afraid to check back here to review how to do something.
 
+```quiz.multi
+
+```
 
 
 ### 2D Lists
