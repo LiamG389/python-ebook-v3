@@ -663,19 +663,88 @@ while again == "Yes":
 print("Bye Bye")
 ```
 
+Check your understanding:
+```quiz.multi
+Question: What is the function of a while loop?
+- Repeat until stated condiditon is satisfied
+- Repeat for a explicitly set amount of times
+- Repeat forever
+Answer: Repeat until stated condiditon is satisfied
+Feedback: Like said above, a while loop repeats until a condition is satsified. Although a while loop can be used to make something repeat indefinitely, that is not the main purpose. 
+
+Question: The following while loop will print "hello world" {{blank}} times. 
+Answer: 11
+Feedback: The loop will repeat 11 times, with counter going from 3-13. 
+Reference:
+~~~python
+counter = 3
+while counter <= 13:
+    print("hello world")
+~~~
+
+Question: The following loop will print "apple" {{blank}} times. 
+Answer: 1
+Feedback: The print("apple") statement is outside the while loop, and thus only runs once. 
+Reference:
+~~~python
+counter = 3
+while counter <= 13:
+    print("hello world")
+print("apple")
+~~~
+
+Question: At the end of the first like of a while loop (the one with the word "while" in it), you put which symbol?
+- :
+- ;
+- ,
+- _
+- =
+Answer: :
+Feedback: Because of Python syntax, you put a colon at the end of the first line of the while loop. This is the same for if statements, for loops, and many other things!
+```
+
 ### Try and Except Statements
 You know all those nasty errors that pop up when something goes wrong? While, if you are not sure if something will work or not, you can put it in a try/except statement, which will try to do something, and if it does not work, you can make it do something else. For example:
-```
-xyz = "Hello"
+```python.run
 try:
-    print("xyz")
+    myvar = "Hello"
+    myvar2 = 1
+    print("Code ran sucessfully")
 except:
     print("There was an error")
 ```
-So in this case, we are trying to print "Hello", and if there is an error, we are going to print "There was an error". But right now, since I made no mistakes and xyz is defined, it will print "Hello". But, if forgot to define `xyz`, it will print "There was an error" because it could not know what xyz was. If I didn't do try/except, it would have printed `NameError: xyz is not defined`. 
-Try it yourself by making some intentional errors:
+So in this case, the code runs sucessfully, because I have correctly defined both variables, and there are no errors in the code. However, if I try and make some intentional errors, see what happens!
 ```python.run
+try:
+    myvar = "Hello"
+    myvar2 = 1
+    sum = myvar + myvar2
+    print("Code ran sucessfully")
+except:
+    print("There was an error")
+```
+You can see, instead of spitting out a long red error when I try to add a string and an integer, it simply prints out "There was an error". That way, our code failed a little more "gracefully".
 
+Check your understanding:
+```quiz.multi
+Question: What is the best definition for a try-execpt statement?
+- Runs a certain thing if a code has errors, another thing if a code doesn't
+- Checks if a certain condition is satisfied
+- Is like a robot: you input a value, and it manipulates it. 
+- Makes a piece of code run a certain amount of times. 
+Answer: Runs a certain thing if a code has errors, another thing if a code doesn't
+Feedback: As we learned above, a try-execpt statement can help us prevent long, messy errors. 
+
+Question: Complete the try-execpt statement below:
+Code:
+{{blank}}:
+    print("Your code worked!")
+{{blank}}:
+    print("Your code had an error")
+Answer: try
+---
+except
+Feedback: All you should have to do is fill in the try except statement with the syntax we discussed above. Beware that the colons have already been filled in for you!
 ```
 ### Loop Inside a Loop?!
 Yes, you can put a loop inside a loop. For example:
@@ -715,9 +784,35 @@ Now, while loops can also be looped inside a loop like the above, but here are s
 
 ####Points to remember when putting a loop in a loop:
 1. Follow all the tips for those loops. 
-2. Make sure to indent properly. If trinket does not do it automatically (which it does most of the time, make sure to indent properly.
+2. Make sure to indent properly.
+
+```quiz.multi
+Question: Identify the problem with this piece of code. Select all answer choices that make sense. 
+Type: multi-select
+- Not indented properly
+- Missing colons
+- Missing parenthesis or brackets
+- Variables not defined correctly
+Answer: Not indented properly | Variables not defined correctly
+Feedback: You can see I didn't indent properly, and Python doesn't use the keyword "var" for defining variables. 
+Reference:
+~~~python
+var x = 13
+for i in range(12):
+    print("apple")
+    for z in range(3):
+    print(x)
+~~~
+
+Question: True or False: You can put a loop inside an if statement, or vice versa. 
+- True
+- False
+Answer: True
+Feedback: Python puts no limits on how you can "piece together" loops and if statements. 
+```
 
 ## Logical Operators
+So far, we've only learned how to set one condition on something (e.g. if statements, while loops). Let's learn how to combine together conditions. 
 ### What are Logical Operators?
 In the previous section about if loops, we only covered if loops that do something based on one input. For example:
 ```
@@ -746,11 +841,12 @@ if apple == True and orange == True:
 else:
     print("bye")
 ```
-Try and guess what happens when I run this code! If you guessed that the program would print "bye", you'd be correct! Because apple is true and orange is false, the condition would not be satified. Try the practice below!
+Try and guess what happens when I run this code! If you guessed that the program would print "bye", you'd be correct! Because apple is true and orange is false, the condition would not be satified. Try the practice below! (There are no multiple choice/fill in the blank questions for this section).
 ***
 Practice 1: Determine the outcome of the following pieces of code. The answers are at the bottom of the page. 
 
-1. ```
+1.
+```
 bob = True
 steve = True
 if bob == True and Steve == True:
@@ -760,7 +856,8 @@ elif bob == True and Steve == False:
 else:
         print("Meow")
 ```
-2. ```
+2.
+```
 apple = False
 orange = False
 if apple == False and orange == False:
@@ -772,6 +869,8 @@ Practice 2: If I want the code below to print "hi" only when BOTH apple and oran
 apple = True
 orange = False
 ```
+
+***
 
 **ANSWERS**:
 Practice 1.1: Hi
@@ -801,7 +900,7 @@ orange = False
 if apple == True or orange == True:
     print("Hi")
 ```
-If you geussed that it would print out a result, you'd be right. That's because only one of the values need to be true in order for the statement to be satified. Try these practice problems. 
+If you geussed that it would print out a result, you'd be right. That's because only one of the values need to be true in order for the statement to be satified. Try this practice problem (there are no multiple choice/fill in the blank problems for this section). 
 ****
 Practice 1: Finish the code so it prints "Hi" when either bob or steve are true. 
 ```python.run
@@ -818,6 +917,7 @@ if bob == True or steve = True:
 This operator also does what the name implies. This operation checks if something is `not` something else. You'll see where this is used later (if you want, you can skip to it [Using Lists](https://trinket.io/liamgao/courses/python#/lists-dictionaries-and-tuples/using-lists) )
 
 ## Lists, Dictionaries, and Tuples
+We've learned one way to store data so far, namely a variable. What if you want to store a lot more data, like the ages of people from a survey? Surely, you don't want to create tens of variables. Let's learn about lists, dictionaries and tuples: ways to store lots of data. 
 ### What’s a list?
 Imagine I have my height in inches over a year. There are a lot of data points, so it would be a waste to create a variable for each one. What do I do? Well, I should create a list. Lists can store large amounts of data, like so:
 ```
@@ -827,12 +927,37 @@ Let's make some observations. Lists are surrounded by square brackets, and each 
 ```
 fruit = ["apple", "orange", "banana", "lemon", "blueberry"]
 ```
-Now, just like with the for loops, Python starts counting at zero, so:
+Now, just like with the for loops, Each item in the list automatically gets a number to identify it, called an "index". Just like with the `range()` function, Python starts these indexes at zero. 
 ```
 fruit = ["apple", "orange", "banana", "lemon", "blueberry"]
 ```
+
+```
                 0         1         2         3          4
-The index (number in the list) of the fruits are listed below the fruits. Ok, say that I want to add something to the list, how can I do that? We'll explore that in the next section
+```
+The index of the fruits are listed below the fruits. Ok, say that I want to add something to the list, how can I do that? We'll explore that in the next section
+
+```quiz.multi
+Question: The index of the first item in a list is {{blank}}
+Answer: zero | 0
+Feedback: Like discussed above, Python starts counting items in the list at 0. 
+
+Question: A list is bound by:
+- Square brackets
+- Brackets
+- Parenthesis
+- Tildas
+Answer: Square brackets
+Feedback: As you can see above, lists are bound by square brackets. 
+
+Question: Which of the following is the correct way to define a list?
+- mylist = [1, 2, 3]
+- list mylist = [1, 2, 3]
+- mylist == [1, 2, 3]
+- mylist = [1: 2: 3:]
+Answer: mylist = [1, 2, 3]
+Feedback: Like discussed above, you define a list using an equals sign, square brackets, and commas seperating the terms. 
+```
 
 ### Using Lists
 ####List Functions:
