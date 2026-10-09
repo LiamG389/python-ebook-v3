@@ -246,7 +246,8 @@ Question: How can I set the variable age to 12 years old? (int, not string)
 - age = "12"
 - age = 12
 - 12 = age
-- "age" = "12
+- "age" = "12"
+- var age = 12
 Answer: age = 12
 Feedback: An int does not require quotation marks, and there should never be quotes around the name of a variable. 
 
@@ -404,12 +405,12 @@ except SyntaxError:
 ```
 Let's learn what some of these things do. 
 ### For x in range():
-This loop might seems simple at first, but when you dig deeper, it accually has many uses. This loop, when used the simplist, is a repeat loop, executing the code inside of it a set number of times. Here is a simple example:
+This loop might seems simple at first, but when you dig deeper, it actually has many uses. This loop, when used the simplest, is a repeat loop, executing the code inside of it a set number of times. Here is a simple example:
 ```python.run
 for x in range(10):
     print("meow")
 ```
-You can see that the word "meow" printed 10 times beccause I put the number 10 inside ```range()```. Can you make the word "woof" print 15 times?
+You can see that the word "meow" printed 10 times because I put the number 10 inside `range()`. Can you make the word "woof" print 15 times?
 
 Compare your code:
 ```
@@ -454,9 +455,13 @@ print
 "hello world"
 Feedback: range(12) repeats the loop 12 times, and print("hello world") displays the message.
 
-Question: Fill in the function that asks the user for a response: age = {{blank}}("How old are you?").
-Answer: input | input()
-Feedback: The input() function prompts the user and returns their response.
+Question: A for loop does which of the following?
+- Check if a variable is equal to a certain value
+- Repeat until a certain condition is satisfied
+- Check if your code has errors
+- Repeat a block of code a certain amount of times 
+Answer: Repeat a block of code a certain amount of times
+Feedback: As we learned above, a for loop loops through the code inside it some number of times. 
 ```
 ### If Statements
 *Before we start*: We need to come back to something we refrained from talking about in the [simple variables and types of data values](https://liamgao.trinket.io/python-basics#/hello-world/simple-variables-and-types-of-data-values) section. Booleans. As previously mentioned, they can only be in two states, True and False (make sure to capitalize the T in true and the F in false). When we do if statements, we check the condition of, say a variable to determine what code to run, so we can check if a variable is set to True, to run a code. You could always just set the variable to a string that is "true", but Booleans make it more convenient. 
@@ -466,13 +471,13 @@ Now that we know how booleans work, lets use our newfound knowledge and set `x` 
 if x == True:
     print("Yay!")
 else:
-    print("Noo!")
+    print("No!")
 ```
-Now, the first line does all the work seeing if the variable x is equal to True. When we want to see if something is equal to something else, we use `==` , while when we want to set something, say a variable to value, we use `=`. Now, the second line tells the computer what to do if x is equal to True, in this case, print "Yay!". The third line tells the computer what to do in the case that x is equal to anything else that is not "True". The "else" part of an if statement is optional, you don't have to include it. If you don't, the computer will simpily move on to the next part of the code if the condition is not satified. The last line just tells the computer what to do if when the "else" is triggered. 
+Now, the first line does all the work seeing if the variable x is equal to True. When we want to see if something is equal to something else, we use `==` , while when we want to set something, say a variable to value, we use `=`. Now, the second line tells the computer what to do if x is equal to True, in this case, print "Yay!". The third line tells the computer what to do in the case that x is equal to anything else that is not "True". The "else" part of an if statement is optional, you don't have to include it. If you don't, the computer will simply move on to the next part of the code if the condition is not satisfied. The last line just tells the computer what to do if when the "else" is triggered. 
 
 Tip! Be sure to include quotation marks ("") if you are checking if something is a string!
 
-Let's make this a bit more complicated. Now, let's make `x` a string. Let's make the if loop check for two condidtions, and then make it do something else if neither of the conditions are satisfied. Let's make the first condition the if statement checks for is that if the variable x is equal to "apple", and the the second condition if the variable x is equal to the string "orange". Like last time, let's start with an example, and then an explination:
+Let's make this a bit more complicated. Now, let's make `x` a string. Let's make the if loop check for two conditions, and then make it do something else if neither of the conditions are satisfied. Let's make the first condition the if statement checks for is that if the variable x is equal to "apple", and the the second condition if the variable x is equal to the string "orange". Like last time, let's start with an example, and then an explanation:
 ```
 if x == "apple":
     print("Yay!")
@@ -481,42 +486,42 @@ elif x == "orange":
 else:
     print("Noo!")
 ```
-The first line, just like last time, checks if x is equal to "apple". If so, the second line prints "Yay!". Now, the third line is a bit differnet. "elif" is a shortened word where the words "else" and "if" are squeezed together. This means that if the first condition ("apple") is not satified, it will check whether x is equal to "orange", and lastly, if x is not equal to "apple" or "orange", it will print("Noo!").
+The first line, just like last time, checks if x is equal to "apple". If so, the second line prints "Yay!". Now, the third line is a bit different. "elif" is a shortened word where the words "else" and "if" are squeezed together. This means that if the first condition ("apple") is not satisfied, it will check whether x is equal to "orange", and lastly, if x is not equal to "apple" or "orange", it will print("Noo!").
 
 #### Things to Watch Out For
-1. Make sure to inclue a colon (:) after each "if ... <span class="red">:</span>". 
+1. Make sure to inclue a colon (:) after each "if ... :". 
 2. Make sure to indent the information that is inside the "if"
 3. Make sure all variables are defined (aka. Have a value and are set) before the if statement.
 
-Since we didn't have any interactive examples, let's have a little practice round. Let's have a variable called "bob", and bob is set to "blueberry". Use an if statement to print "Yummy!" if bob is set to "blueberry" and "Ewww!" if bob is set to anything else. Press <i class="fa fa-play"></i> to run your code. Challenge yourself to not copy and paste from above. 
+Since we didn't have any interactive examples, let's have a little practice round. Let's have a variable called "fruit", and fruit is set to "blueberry". Use an if statement to print "Yummy!" if fruit is set to "blueberry" and "Ewww!" if fruit is set to anything else. Press "run" to run your code. Challenge yourself to not copy and paste from above. 
 ```python.run
-bob = "blueberry"
+fruit = "blueberry"
 ```
-Here is an extra challenge! Now, bob is set to "durian". Edit your existing if loop to make it so that if bob is set to "durian", it will print "Stinky!", but if you change bob back to blueberry, it will still say, "Yummy!". See if you can also figure out how to set bob to "durian" before your if loop. 
+Here is an extra challenge! Now, fruit is set to "durian". Edit your existing if loop to make it so that if fruit is set to "durian", it will print "Stinky!", but if you change fruit back to blueberry, it will still say, "Yummy!". See if you can also figure out how to set fruit to "durian" before your if loop. 
 
 **Answers!**
 
 Challenge 1: Your if loop should look something like this:
 ```
-if bob == "blueberry":
+if fruit == "blueberry":
     print("Yummy")
 else:
     print("Ewww!")
 ```
-Challenge 2: You can change bob to "durian" by editing the first line like so:
+Challenge 2: You can change fruit to "durian" by editing the first line like so:
 ```
-bob = "durian"
+fruit = "durian"
 ```
 Now, your edited if statement should look something like this:
 ```
-if bob == "blueberry":
+if fruit == "blueberry":
     print("Yummy")
-elif bob == "durian":
+elif fruit == "durian":
     print("Stinky!")
 else:
     print("Ewww!")
 ```
-### If Statements II
+
 You can also you different operations on If statments. For example:
 ```
 bob = 1
@@ -536,13 +541,76 @@ if bob != steve:
     print("Bob is not equal to Steve")
 ```
 This would print "bob is not equal to steve" because bob is `True` and Steve is `False`. 
+
+Check what you've learned:
+```quiz.multi
+Question: An if statement...
+- Checks if a condition is satisfied to complete an action
+- Repeats an action a certain amount of times
+- Repeats an action until a condition is satisfied
+- Checks if your code contains errors, and fixes them
+Answer: Checks if a condition is satisfied to complete an action
+Feedback: As the name implies, an if statement checks a condition, and IF that statement is True/False, does an action. 
+
+Question: The else part of an if statement runs only when:
+- All other conditions have not been satisfied
+- All other conditions have been satisfied
+- It always runs
+- It never runs
+Answer: All other conditions have not been satisfied
+Feedback: The "else" statement is almost like a fallback. It only runs if none of the other conditions in the group are satisfied. 
+
+Question: elif is shorthand for...
+- else if
+- elbow if
+- extra if
+- el informant
+Answer: else if
+Feedback: It is shorthand for else if; it's like an else statement, but it has a condition. 
+
+Question: The following code will print out which of the following? (select ALL that apply).
+Type: multi-select
+- hello
+- world
+- !!!
+Answer: hello | world
+Feedback: Both the number being greater than one and greater equals to 3 are satisfied, so both hello and world are printed out. !!! is not printed out because else only runs if other statements are not satisfied. 
+Reference:
+~~~python
+myvar = 3
+if myvar > 1:
+    print("hello")
+if myvar >= 3:
+    print("world")
+else:
+    print("!!!")
+~~~
+
+Question: The following code will print out which of the following? (select ALL that apply).
+Type: multi-select
+- hello
+- world
+- !!!
+Answer: hello 
+Feedback: An elif only runs if the statements before it don't get satisfied, In this case, the first statement is satisfied, so both the elif and else don't get to run. 
+Reference:
+~~~python
+myvar = 3
+if myvar > 1:
+    print("hello")
+elif myvar >= 3:
+    print("world")
+else:
+    print("!!!")
+~~~
+```
 ### While Loops
-While loops repeat something continuesly until a condidition is satified. Let's start with the simpilist of while loops. The forever loop. If you want something to repeat forever, you can use `while True:`. If you want to get out of your forever loop, you can use the `break` function. You can skip ahead to [ here](https://liamgao.trinket.io/python-basics#/functions-and-more-functions/break-time-not-really) to read a quick bit on how to use the "break" function, but that's not really important right now. If I do:
+While loops repeat something continuously until a condition is satisfied. Let's start with the simplest of while loops. The forever loop. If you want something to repeat forever, you can use `while True:`. If you want to get out of your forever loop, you can use the `break` function. You can skip ahead to [ here](https://liamgao.trinket.io/python-basics#/functions-and-more-functions/break-time-not-really) to read a quick bit on how to use the "break" function, but that's not really important right now. If I do:
 ```
 while True:
     print("meow")
 ```
-It will print "meow" forever, with no end in sight (good thing I didn't make that interactive). Ok, let's move on to something more complicated. Let's set `x` to 1. Now, what if I want the loop to repeat 5 times (Yes, you could do this with a `for x in range` loop, (commonly refered to as a for loop), but for the purposes for explaining a while loop, we'll use that example. You can achive many different things with while loops, but for our first example, we'll stick with the simplist (even though not very practical) example). Here is an example:
+It will print "meow" forever, with no end in sight (good thing I didn't make that interactive). Ok, let's move on to something more complicated. Let's set `x` to 1. Now, what if I want the loop to repeat 5 times (Yes, you could do this with a `for x in range` loop, commonly referred to as a for loop), but for the purposes for explaining a while loop, we'll use that example. You can achieve many different things with while loops, but for our first example, we'll stick with the simplest (even though not very practical) example). Here is an example:
 ```
 x = 1
 
@@ -553,20 +621,23 @@ while x <= 5:
 ```
 Now, this code is a bit more complicated. First, we are setting `x` to 1, like previously mentioned. Next, we are saying that while x is less than or equal to (<=) 5, we are going to:
 1. Print `x`
-2. Add 1 to `x`. We can achive that by using the +=, or you could do 
+2. Add 1 to `x`. We can achieve that by using the +=, or you could do 
 ```
 x = x+1
 ```
 They both work, it just depends on how you want to do it. 
 
-Ok. Now that you get the hang of it, let's take a look back at our Addition Caluculator from PROJECT 1. If you recall, our code ended like this:
+Ok. Now that you get the hang of it, let's take a look back at our Addition Calculator from PROJECT 1. If you recall, our code ended like this:
 ```python.run
 numone = int(input("What is the first number?"))
 numtwo = int(input("What is your second number?"))
 sum = numone + numtwo
 print(sum)
 ```
-*Challenge: You can just read along, you don't have to do it independently if you feel it is too hard: *The thing is, we can only use it once, and then we have to start again. This is a great place to put our while loop to action. Let's create a variable called "again". We'll set this to "Yes" if our user wants to use the calculator again, and "No" if our user wants to stop. Can you ask the user if they want to go again using the input function at the end of our script and set the user's answer to the variable "again"? Make sure the user knows to type in "Yes" or "No" by telling them in the question! Also, make sure to set `again` to "Yes" at the beginning, or else, our code won't run at all once we put the while loop around it. 
+*Challenge: You can just read along, you don't have to do it independently if you feel it is too hard.*
+
+
+The thing is, we can only use it once, and then we have to start again. This is a great place to put our while loop to action. Let's create a variable called "again". We'll set this to "Yes" if our user wants to use the calculator again, and "No" if our user wants to stop. Can you ask the user if they want to go again using the input function at the end of our script and set the user's answer to the variable "again"? Make sure the user knows to type in "Yes" or "No" by telling them in the question! Also, make sure to set `again` to "Yes" at the beginning, or else, our code won't run at all once we put the while loop around it. 
 
 Ok, let's now put a while loop around the whole thing, and run while the variable again is equal to "Yes". Can you do it without my help? Don't forget your indents 😃!
 

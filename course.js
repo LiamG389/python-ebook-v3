@@ -246,11 +246,21 @@ function parseQuiz(source, type) {
     let answers = [];
     const answerGroups = [];
     let feedback = '';
+    let reference = null;
     let section = 'question';
 
-    for (const rawLine of source.split('\n')) {
+    const lines = source.replace(/\r/g, '').split('\n');
+    for (let index = 0; index < lines.length; index++) {
+        const rawLine = lines[index];
         const line = rawLine.trim();
         if (!line) continue;
+        if (/^Reference:\s*$/i.test(line)) {
+            const parsedReference = readQuizReference(lines, index);
+            reference = parsedReference.reference;
+            index = parsedReference.endIndex;
+            section = 'after-answer';
+            continue;
+        }
         const answer = line.match(/^Answer:\s*(.+)$/i);
         const feedbackLine = line.match(/^Feedback:\s*(.*)$/i);
         if (answer) {
@@ -295,19 +305,29 @@ function parseQuiz(source, type) {
         }
     }
 
-    return { type, question: questionText, options, answers, answerGroups, feedback };
+    return { type, question: questionText, options, answers, answerGroups, feedback, reference };
 }
 
 function parseCodeQuiz(source) {
     let prompt = '';
     let feedback = '';
+    let reference = null;
     let section = 'prompt';
     const codeLines = [];
     const answerSections = [[]];
 
-    for (const line of source.replace(/\r/g, '').split('\n')) {
+    const lines = source.replace(/\r/g, '').split('\n');
+    for (let index = 0; index < lines.length; index++) {
+        const line = lines[index];
         const promptLine = line.match(/^Prompt:\s*(.+)$/i);
         const feedbackLine = line.match(/^Feedback:\s*(.*)$/i);
+        if (/^Reference:\s*$/i.test(line) && section !== 'code') {
+            const parsedReference = readQuizReference(lines, index);
+            reference = parsedReference.reference;
+            index = parsedReference.endIndex;
+            section = 'after-answer';
+            continue;
+        }
         if (promptLine && section === 'prompt') {
             prompt = promptLine[1];
             continue;
@@ -355,7 +375,27 @@ function parseCodeQuiz(source) {
         codeLines,
         blankIndents: placeholderLines.map(({ match }) => match[1]),
         answers,
-        feedback
+        feedback,
+        reference
+    };
+}
+
+function readQuizReference(lines, markerIndex) {
+    const opening = lines[markerIndex + 1]?.trim().match(/^~~~([A-Za-z0-9_+.-]*)$/);
+    if (!opening) throw new Error('Reference: must be followed by a fenced code block using ~~~.');
+    const codeLines = [];
+    let endIndex = markerIndex + 2;
+    while (endIndex < lines.length && lines[endIndex].trim() !== '~~~') {
+        codeLines.push(lines[endIndex]);
+        endIndex++;
+    }
+    if (endIndex === lines.length) throw new Error('Reference code block is missing its closing ~~~ fence.');
+    return {
+        reference: {
+            language: opening[1],
+            code: codeLines.join('\n').replace(/\n+$/, '')
+        },
+        endIndex
     };
 }
 
@@ -365,7 +405,9 @@ function parseQuizSet(source) {
     let answerSeen = false;
     let section = 'question';
 
-    for (const rawLine of source.split('\n')) {
+    const lines = source.replace(/\r/g, '').split('\n');
+    for (let index = 0; index < lines.length; index++) {
+        const rawLine = lines[index];
         const line = rawLine.trim();
         if (!line) {
             if (current?.type === 'code' && section === 'code-answer') {
@@ -392,6 +434,10 @@ function parseQuizSet(source) {
             section = 'question';
         } else if (!current) {
             throw new Error('A multi-question quiz must start each item with "Question:".');
+        } else if (current.type === 'code' && section === 'feedback' && /^Reference:\s*$/i.test(line)) {
+            const parsedReference = readQuizReference(lines, index);
+            current.reference = parsedReference.reference;
+            index = parsedReference.endIndex;
         } else if (current.type === 'code' && section === 'code') {
             const codeAnswer = line.match(/^Answer:\s*(.*)$/i);
             if (codeAnswer) {
@@ -407,6 +453,11 @@ function parseQuizSet(source) {
                 current.codeAnswerSections.push([]);
             } else if (feedback) {
                 current.feedback = feedback[1];
+                section = 'feedback';
+            } else if (/^Reference:\s*$/i.test(line)) {
+                const parsedReference = readQuizReference(lines, index);
+                current.reference = parsedReference.reference;
+                index = parsedReference.endIndex;
                 section = 'feedback';
             } else {
                 current.codeAnswerSections.at(-1).push(rawLine);
@@ -426,6 +477,11 @@ function parseQuizSet(source) {
                 throw new Error(`Unknown quiz question type "${questionType[1]}". Use "multi-select".`);
             }
             current.selectionMode = selectionMode;
+        } else if (/^Reference:\s*$/i.test(line)) {
+            const parsedReference = readQuizReference(lines, index);
+            current.reference = parsedReference.reference;
+            index = parsedReference.endIndex;
+            section = 'feedback';
         } else if (line.startsWith('- ') && !answerSeen) {
             current.options.push(line.slice(2).trim());
         } else if (answer) {
@@ -539,6 +595,7 @@ function createQuiz(quiz, id) {
     return `
         <section class="markdown-quiz" data-quiz-id="${id}" data-quiz-type="${quiz.type}" data-quiz-answers="${escapeAttribute(JSON.stringify(quiz.type === 'blank' ? quiz.answerGroups : quiz.answers))}" data-quiz-feedback="${escapeAttribute(quiz.feedback)}">
             <p class="quiz-question">${question}</p>
+            ${renderQuizReference(quiz.reference)}
             ${choices}
             <div class="quiz-actions">
                 <button class="quiz-check" type="button">Check answer</button>
@@ -812,12 +869,24 @@ function initializeQuizzes() {
 }
 
 function initializeCodeAnswerBoxes(container) {
-    container.querySelectorAll('.quiz-code-answer:not(.quiz-code-answer-inline)').forEach((input) => {
+    container.querySelectorAll('.quiz-code-answer').forEach((input) => {
+        const isInline = input.classList.contains('quiz-code-answer-inline');
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        const initialWidth = input.getBoundingClientRect().width;
         const resize = () => {
-            input.style.height = 'auto';
             const style = getComputedStyle(input);
-            const borderHeight = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
-            input.style.height = `${input.scrollHeight + borderHeight}px`;
+            context.font = style.font;
+            const longestLine = input.value.split('\n')
+                .reduce((longest, line) => Math.max(longest, context.measureText(line).width), 0);
+            const horizontalSpace = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight) +
+                parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+            input.style.width = `${Math.max(initialWidth, Math.ceil(longestLine + horizontalSpace + 2))}px`;
+            if (!isInline) {
+                input.style.height = 'auto';
+                const borderHeight = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+                input.style.height = `${input.scrollHeight + borderHeight}px`;
+            }
         };
         input.addEventListener('input', resize);
         resize();
@@ -845,6 +914,15 @@ function renderQuizQuestion(question, id) {
         );
     });
     return html;
+}
+
+function renderQuizReference(reference) {
+    if (!reference) return '';
+    const language = reference.language ? ` (${escapeHtml(reference.language)})` : '';
+    return `<aside class="quiz-reference">
+        <p class="quiz-reference-title">Reference${language}</p>
+        <pre><code>${escapeHtml(reference.code)}</code></pre>
+    </aside>`;
 }
 
 function createQuizBlankInputs(id, count) {
@@ -897,6 +975,9 @@ function initializeMultiQuestionQuiz(quizElement) {
             : renderInline(question.question);
         progress.textContent = `Question ${state.index + 1} of ${questions.length}`;
         step.innerHTML = `<p class="quiz-question">${questionHtml}</p>`;
+        if (question.reference) {
+            step.insertAdjacentHTML('beforeend', renderQuizReference(question.reference));
+        }
         if (question.type === 'code') {
             step.insertAdjacentHTML('beforeend', renderQuizCodeBlock(question, state.index));
             initializeCodeAnswerBoxes(step);

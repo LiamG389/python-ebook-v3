@@ -64,6 +64,10 @@ Which function displays text in Python?
 - open()
 Answer: print()
 Feedback: It writes text to the console.
+Reference:
+~~~python
+print("Hello, world!")
+~~~
 ```
 
 ```quiz.blank
@@ -95,7 +99,7 @@ Feedback: Use --- on a line of its own to separate the expected code for each bl
 ```
 ````
 
-Multiple choice options start with `- `; the `Answer:` must match an option. Fill-in-the-blank questions can have one or more `{{blank}}` placeholders. Add one `Answer:` line per placeholder, in order; separate acceptable answers for a blank with `|`. Answers are matched case-insensitively after trimming whitespace, and each blank previews its input as the learner types. `Feedback:` is optional and shown after each check. These quizzes are graded in the browser and are not secure assessments.
+Any quiz question can include an optional reference code block by adding `Reference:` followed by a `~~~` fence, optionally with a language name (for example, `~~~python`), and a closing `~~~` fence. Put the reference after the question's answer and feedback. It is displayed with that question but does not affect grading. Multiple choice options start with `- `; the `Answer:` must match an option. Fill-in-the-blank questions can have one or more `{{blank}}` placeholders. Add one `Answer:` line per placeholder, in order; separate acceptable answers for a blank with `|`. Answers are matched case-insensitively after trimming whitespace, and each blank previews its input as the learner types. `Feedback:` is optional and shown after each check. These quizzes are graded in the browser and are not secure assessments.
 
 For `quiz.code`, write a `Prompt:`, a `Code:` section with one or more lines containing `{{blank}}`, and an `Answer:` section with one replacement block per blank. Separate answer blocks with a line containing only `---`. Each blank is editable independently and can contain multiple lines. The blank line's indentation is shown in the editable code area; write answers without that outer indentation. Code answers are case-sensitive, preserve indentation and internal blank lines, and ignore trailing whitespace and extra blank lines at the ends. All blanks must be filled correctly to pass.
 
@@ -108,6 +112,10 @@ Question: Which function displays text?
 - print()
 - open()
 Answer: print()
+Reference:
+~~~python
+print("Hello, world!")
+~~~
 
 Question: The function that reads user input is {{blank}}.
 Answer: input | input()
@@ -132,7 +140,7 @@ Feedback: The loop repeats three times and print() displays the message.
 ```
 ````
 
-Start each item with `Question:`. Add `- ` options for single-choice, include one or more `{{blank}}` placeholders for short fill-ins, or add `Code:` followed by a multi-line code template containing `{{blank}}` placeholders. Inline code blanks have a single-line field; a placeholder on a line by itself provides a multi-line code field. For code completion, provide one answer block per placeholder after `Answer:`; separate subsequent answer blocks with a line containing only `---`. A block can contain multiple lines. For short fill-ins, provide one `Answer:` line per blank in order, separating acceptable answers with `|`. For checkboxes, add `Type: multi-select` and separate all correct options on the `Answer:` line with `|`. Multi-select is all-or-nothing: all correct options and no incorrect options must be selected. Each item needs the required `Answer:` line(s); optional `Feedback:` appears after each response. Both question order and multiple-choice options are shuffled automatically each time the quiz starts. Learners check each answer, advance with the next button, then see a final `You got x/y correct` score.
+Start each item with `Question:`. Add `- ` options for single-choice, include one or more `{{blank}}` placeholders for short fill-ins, or add `Code:` followed by a multi-line code template containing `{{blank}}` placeholders. Inline code blanks have a single-line field; a placeholder on a line by itself provides a multi-line code field. For code completion, provide one answer block per placeholder after `Answer:`; separate subsequent answer blocks with a line containing only `---`. A block can contain multiple lines. For short fill-ins, provide one `Answer:` line per blank in order, separating acceptable answers with `|`. Any quiz question can also include a reference code block using `Reference:` followed by a `~~~` fenced block; this appears with that question but does not affect grading. For checkboxes, add `Type: multi-select` and separate all correct options on the `Answer:` line with `|`. Multi-select is all-or-nothing: all correct options and no incorrect options must be selected. Each item needs the required `Answer:` line(s); optional `Feedback:` appears after each response. Both question order and multiple-choice options are shuffled automatically each time the quiz starts. Learners check each answer, advance with the next button, then see a final `You got x/y correct` score.
 
 Add the lesson to `course-toc.json` in its intended reading order as well:
 

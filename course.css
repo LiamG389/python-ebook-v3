@@ -417,9 +417,28 @@ body {
     font: inherit;
 }
 
+.quiz-reference {
+    margin: 12px 0;
+}
+
+.quiz-reference-title {
+    margin: 0 0 5px !important;
+    color: #555563;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.course-content .quiz-reference pre {
+    margin: 0;
+}
+
 .course-content .quiz-code-block {
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
     margin: 0;
     padding: 10px 12px;
+    overflow: visible;
     color: #e8e8ed;
     background: #20212a;
     border: 1px solid #d9d9e1;
@@ -431,8 +450,8 @@ body {
     display: block;
     box-sizing: border-box;
     width: 100%;
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 0;
+    max-width: none;
     min-height: 4.65em;
     padding-top: 0;
     padding-bottom: 0;
@@ -445,15 +464,14 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     resize: none;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
+    white-space: pre;
 }
 
 .quiz-code-answer-inline {
     display: inline-block;
     width: 6em;
     min-width: 3em;
-    max-width: min(20em, 100%);
+    max-width: none;
     min-height: 1.65em;
     padding: 0 4px !important;
     vertical-align: middle;
