@@ -960,6 +960,7 @@ Feedback: Like discussed above, you define a list using an equals sign, square b
 ```
 
 ### Using Lists
+WARNING! This section is sort of a listicle, and might be a little boring. Don't get discouraged though!
 ####List Functions:
 Click on the links to be directed straight to that section. If it is your first time, and you are not looking back for help, read the whole thing in order. 
 
@@ -969,11 +970,12 @@ Click on the links to be directed straight to that section. If it is your first 
 3. Removing Items using `remove()`, `pop()` and `del`
 4. Getting items from lists using `[]`
 5. Getting multiple items using `[ : ]`
-6. Mushing 2 lists together with `extend()`
-7. Finding Length using `len()`
-8. Checking Membership using `in` and `not in`
-9. Sorting Lists using `sort()`
-10. Revesing Lists Using `reverse()`
+6. Changing Items
+7. Mushing 2 lists together with `extend()`
+8. Finding Length using `len()`
+9. Checking Membership using `in` and `not in`
+10. Sorting Lists using `sort()`
+11. Revesing Lists Using `reverse()`
 
 ###`append()`
 To add something to a list, we can use the `append()` function, putting what we want to add to the list in the parentheses.  For example:
@@ -1023,7 +1025,7 @@ It removed the value at index 2, "banana". You can also del the whole list, by
 ```
 del fruits
 ```
-If you want to delete a lot of the list at once, you can also use the `del` function. Inside the brackets, put [index of first one (will be removed:index of the last one (will not be removed)]. If we take our `fruits` example again:
+If you want to delete a lot of the list at once, you can also use the `del` function. Inside the brackets, put [index of first one (will be removed):index of the last one (will not be removed)]. If we take our `fruits` example again:
 ```python.run
 fruits = ["apple", "orange", "banana", "lemon", "blueberry"]
 del fruits[0:2]
@@ -1040,12 +1042,14 @@ print(fruits[1])
 Once you get this data, you can do whatever you like with it.
 
 ###`[ : ]`
-Remove mutiple items? Well, just like when we deleted mutiple items, we can use the colon (:). For example
+Get mutiple items? Well, just like when we deleted mutiple items, we can use the colon (:). For example
 ```python.run
 fruits = ["apple", "orange", "banana", "lemon", "blueberry"]
 print(fruits[1:3])
 ```
-As you see, Python will return this as a seperate list. 
+As you see, Python will return this as a seperate list. Again, the first number is inclusive, and the second one is not.  
+
+### Changing items
 * What if I wanted to change an existing item in the list? Well, we can use this format:
 ```
 fruits[3] = "Grape"
@@ -1068,16 +1072,16 @@ You see, it returns 5 because there are 5 items in the `fruits` list.
 
 ###`in` & `not in`
 You can check if something is in the list using `in` and `not in`. These will return Booleans: `True` or `False`. For example:
-``` 
+``` python.run
 fruits = ["apple", "orange", "banana", "lemon", "blueberry"]
 print("apple" in fruits)
 ```
-Can you geuss what happens? Of course, it returns
+Can you guess what happens? Of course, it returns
 ```python
 >>> True
 ```
 Because "apple" is clearly in the list `fruits`(it's the first one). You can also use `not in` in the same way.  
-``` 
+``` python.run
 fruits = ["apple", "orange", "banana", "lemon", "blueberry"]
 print("pear" not in fruits)
 ```
@@ -1115,9 +1119,38 @@ print(fruits)
 All of this may seem hard at first, but after using it for a while, it will all become really familiar. If you ever need to, don't be afraid to check back here to review how to do something.
 
 ```quiz.multi
+Question: How can you add items to a list? Select all that apply. 
+Type: multi-select
+- append()
+- insert()
+- pop()
+- sort()
+Answer: append() | insert()
+Feedback: As listed above, insert() inserts itmes into the middle of the list, and append adds items to the end of the list. 
 
+Question: I want to find the length of mylist. Thus, I can do {{blank}}(mylist).
+Answer: len 
+Feedback: The len() function returns the length of the list. 
+
+Question: mylist[1] returns the {{blank}} item of mylist. 
+Answer: 2 | second
+Feedback: Python starts counting from 0, so when getting the item with an index of 1, it is actually the second item in the list. 
+
+Question: Fill in the blank to check if I have milk in my fridge. 
+Code:
+fridge_contents = ["milk", "eggs", "yogurt", "carrots", "ketchup"]
+if {{blank}}:
+    print("Yes, the fridge contains milk.")
+Answer: "milk" in fridge_contents
+Feedback: Like discussed above, we can use in to check membership, specifically checking if the string "milk" exists in fridge_contents. 
+
+Question: The {{blank}} function returns the list sorted from least to greatest (ints) or in alphabetical order (strings). 
+Answer: sort | sort()
+Feedback: Like the name implies, the sort() function sorts items in a list by alphabetical order or by value. 
+
+Question: fridge_contents[2:4] will return:
+- 
 ```
-
 
 ### 2D Lists
 You can also put a list inside a list! We call these 2D lists. For example
